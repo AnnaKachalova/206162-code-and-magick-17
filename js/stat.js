@@ -37,7 +37,7 @@ window.renderStatistics = function (ctx, names, times) {
 
   for (var i = 0; i < names.length; i++) {
     var time = Math.floor(times[i]);
-    var saturation = Math.random() * (1 - 0) + 0;
+    var saturation = Math.random() * (1 - 0.1) + 0.1;
     var COLOR_ANOTHER_PLAYERS = 'rgba(0, 0, 255,' + saturation + ')';
 
     // find the percentage for the number
