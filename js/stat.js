@@ -1,12 +1,12 @@
 var CLOUD_WIDTH = 420;
 var CLOUD_HEIGHT = 270;
 
-var renderRect = function(ctx, x, y, color) {
+var renderRect = function (ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
 
-window.renderStatistics = function(ctx, names, times) {
+window.renderStatistics = function (ctx, names, times) {
   // render shadow
   renderRect(ctx, 110, 20, 'rgba(0, 0, 0, 0.7)');
 
