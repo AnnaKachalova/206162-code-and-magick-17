@@ -54,8 +54,8 @@ var similarWizardTemplate = document
   .querySelector('#similar-wizard-template')
   .content.querySelector('.setup-similar-item');
 
-for (var i = 0; i < 4; i++) {
-  var currentWizard = similarCharacters[i];
+for (var j = 0; j < 4; j++) {
+  var currentWizard = similarCharacters[j];
   var element = similarWizardTemplate.cloneNode(true);
 
   element.querySelector('.setup-similar-label').textContent = currentWizard.name;
