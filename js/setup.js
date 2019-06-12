@@ -34,7 +34,7 @@ var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 
 var similarCharacters = [];
 
-var getRandElement = function (arr) {
+var getRandElement = function(arr) {
   var rand = Math.floor(Math.random() * arr.length);
   return arr[rand];
 };
@@ -54,7 +54,7 @@ var similarWizardTemplate = document
   .querySelector('#similar-wizard-template')
   .content.querySelector('.setup-similar-item');
 
-similarListElement.textContent = '';  
+similarListElement.textContent = '';
 for (var j = 0; j < 4; j++) {
   var currentWizard = similarCharacters[j];
   var element = similarWizardTemplate.cloneNode(true);
