@@ -34,7 +34,7 @@ var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 
 var similarCharacters = [];
 
-var getRandElement = function(arr) {
+var getRandElement = function (arr) {
   var rand = Math.floor(Math.random() * arr.length);
   return arr[rand];
 };
