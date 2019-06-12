@@ -41,7 +41,7 @@ var getRandElement = function(arr) {
 
 for (var i = 0; i < 4; i++) {
   var character = {
-    name: getRandElement(WIZARD_NAMES) + ' ' + getRandElement(WIZARD_LAST_NAMES),
+    name: getRandElement(WIZARD_NAMES) + '\t' + getRandElement(WIZARD_LAST_NAMES),
     coatColor: getRandElement(COAT_COLORS),
     eyesColor: getRandElement(EYES_COLORS),
   };
