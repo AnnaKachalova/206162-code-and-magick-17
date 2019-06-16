@@ -31,6 +31,7 @@ var COAT_COLORS = [
   'rgb(0, 0, 0)',
 ];
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
+var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', ' #e848d5', '#e6e848'];
 
 var similarCharacters = [];
 
@@ -67,3 +68,76 @@ for (var j = 0; j < 4; j++) {
 }
 
 document.querySelector('.setup-similar').classList.remove('hidden');
+
+// События с окном
+var setup = document.querySelector('.setup');
+var buttonOpen = document.querySelector('.setup-open');
+var buttonClose = setup.querySelector('.setup-close');
+var icon = document.querySelector('.setup-open-icon');
+var buttonSubmit = setup.querySelector('.setup-submit');
+
+var onSetupClick = function () {
+  setup.classList.remove('hidden');
+};
+var onButtonCloseClick = function () {
+  setup.classList.add('hidden');
+};
+
+/* Для иконки в фокусе то окно настройки персонажа должно
+  открываться по нажатию кнопки ENTER.
+
+ Когда окно открыто, нажатие на клавишу ESC
+ должно закрывать диалог.
+ 
+  Если фокус находится на форме ввода имени, то окно закрываться не должно 
+  - ВОТ ТУТ непонятно окно и так не закрывается
+ */
+
+var onIconKeydown = function (evt) {
+  if (evt.keyCode === 13) {
+    setup.classList.remove('hidden');
+  }
+  if (evt.keyCode === 27) {
+    setup.classList.add('hidden');
+  }
+};
+
+/* Если окно открыто и фокус находится на кнопке закрытия окна,
+  и нажатие клавиши ENTER окно закрывается */
+
+var onButtonCloseKeydown = function (evt) {
+  if (evt.keyCode === 13) {
+    setup.classList.add('hidden');
+  }
+};
+/*
+  не поняла на счет пунктов 
+  Если диалог открыт, нажатие на кнопку «Сохранить» приводит к отправке формы;
+  Если диалог открыт и фокус находится на кнопке «Сохранить», нажатие на ENTER приводит к отправке формы;
+  они вроде тоже и так работают
+*/
+buttonOpen.addEventListener('click', onSetupClick);
+buttonClose.addEventListener('click', onButtonCloseClick);
+
+icon.addEventListener('keydown', onIconKeydown);
+buttonClose.addEventListener('keydown', onButtonCloseKeydown);
+
+//События с волшебником
+var wizard = document.querySelector('.setup-wizard');
+var wizardCoat = wizard.querySelector('.setup-wizard .wizard-coat');
+var wizardEyes = wizard.querySelector('.setup-wizard .wizard-eyes');
+var fireball = document.querySelector('.setup-fireball-wrap');
+
+var onWizardCoatClick = function () {
+  wizardCoat.style.fill = getRandElement(COAT_COLORS);
+};
+var onWizardEyesClick = function () {
+  wizardEyes.style.fill = getRandElement(EYES_COLORS);
+};
+var onFireballClick = function () {
+  fireball.style.background = getRandElement(FIREBALL_COLORS);
+};
+
+wizardCoat.addEventListener('click', onWizardCoatClick);
+wizardEyes.addEventListener('click', onWizardEyesClick);
+fireball.addEventListener('click', onFireballClick);
