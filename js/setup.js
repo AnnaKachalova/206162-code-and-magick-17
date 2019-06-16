@@ -74,7 +74,6 @@ var setup = document.querySelector('.setup');
 var buttonOpen = document.querySelector('.setup-open');
 var buttonClose = setup.querySelector('.setup-close');
 var icon = document.querySelector('.setup-open-icon');
-var buttonSubmit = setup.querySelector('.setup-submit');
 
 var onSetupClick = function () {
   setup.classList.remove('hidden');
