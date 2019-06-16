@@ -83,16 +83,6 @@ var onButtonCloseClick = function () {
   setup.classList.add('hidden');
 };
 
-/* Для иконки в фокусе то окно настройки персонажа должно
-  открываться по нажатию кнопки ENTER.
-
- Когда окно открыто, нажатие на клавишу ESC
- должно закрывать диалог.
- 
-  Если фокус находится на форме ввода имени, то окно закрываться не должно 
-  - ВОТ ТУТ непонятно окно и так не закрывается
- */
-
 var onIconKeydown = function (evt) {
   if (evt.keyCode === 13) {
     setup.classList.remove('hidden');
@@ -102,27 +92,19 @@ var onIconKeydown = function (evt) {
   }
 };
 
-/* Если окно открыто и фокус находится на кнопке закрытия окна,
-  и нажатие клавиши ENTER окно закрывается */
-
 var onButtonCloseKeydown = function (evt) {
   if (evt.keyCode === 13) {
     setup.classList.add('hidden');
   }
 };
-/*
-  не поняла на счет пунктов 
-  Если диалог открыт, нажатие на кнопку «Сохранить» приводит к отправке формы;
-  Если диалог открыт и фокус находится на кнопке «Сохранить», нажатие на ENTER приводит к отправке формы;
-  они вроде тоже и так работают
-*/
+
 buttonOpen.addEventListener('click', onSetupClick);
 buttonClose.addEventListener('click', onButtonCloseClick);
 
 icon.addEventListener('keydown', onIconKeydown);
 buttonClose.addEventListener('keydown', onButtonCloseKeydown);
 
-//События с волшебником
+// События с волшебником
 var wizard = document.querySelector('.setup-wizard');
 var wizardCoat = wizard.querySelector('.setup-wizard .wizard-coat');
 var wizardEyes = wizard.querySelector('.setup-wizard .wizard-eyes');
