@@ -80,17 +80,17 @@ var input = setup.querySelector('.setup-user-name');
 var onSetupClick = function () {
   setup.classList.remove('hidden');
 };
-var onButtonCloseClick = function (evt) {
+var onButtonCloseClick = function () {
   setup.classList.add('hidden');
 };
 
 // input
 var focusOnInput = false;
-input.addEventListener('focus', () => {
+input.addEventListener('focus', function () {
   focusOnInput = true;
 });
 
-input.addEventListener('blur', () => {
+input.addEventListener('blur', function () {
   focusOnInput = false;
 });
 
