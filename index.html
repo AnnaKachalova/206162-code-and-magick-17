@@ -77,12 +77,13 @@
       <div class="demo"></div>
 
       <div class="setup-open">
-        <img src="./img/user-1.jpg" class="setup-open-icon" />
+        <img src="./img/user-1.jpg" class="setup-open-icon" tabindex="0" />
       </div>
     </header>
 
     <div class="overlay setup hidden">
       <form
+        action="https://js.dump.academy/code-and-magick"
         class="setup-wizard-form"
         method="post"
         enctype="multipart/form-data"
@@ -102,11 +103,13 @@
                 required
                 class="setup-user-name"
                 value="Синий Пендальф"
+                minlength="2"
+                maxlength="25"
               />
             </label>
           </div>
 
-          <span class="setup-close">&times;</span>
+          <span class="setup-close" tabindex="0">&times;</span>
         </div>
 
         <div class="setup-artifacts-shop">
