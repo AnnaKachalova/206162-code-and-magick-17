@@ -74,28 +74,45 @@ var setup = document.querySelector('.setup');
 var buttonOpen = document.querySelector('.setup-open');
 var buttonClose = setup.querySelector('.setup-close');
 var icon = document.querySelector('.setup-open-icon');
+var input = setup.querySelector('.setup-user-name');
 
+// click
 var onSetupClick = function () {
   setup.classList.remove('hidden');
 };
-var onButtonCloseClick = function () {
+var onButtonCloseClick = function (evt) {
   setup.classList.add('hidden');
 };
 
+// input
+var focusOnInput = false;
+input.addEventListener('focus', () => {
+  focusOnInput = true;
+});
+
+input.addEventListener('blur', () => {
+  focusOnInput = false;
+});
+
+// keydown
 var onIconKeydown = function (evt) {
   if (evt.keyCode === 13) {
     setup.classList.remove('hidden');
   }
-  if (evt.keyCode === 27) {
+};
+
+document.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === 27 && !focusOnInput) {
     setup.classList.add('hidden');
   }
-};
+});
 
 var onButtonCloseKeydown = function (evt) {
   if (evt.keyCode === 13) {
     setup.classList.add('hidden');
   }
 };
+
 
 buttonOpen.addEventListener('click', onSetupClick);
 buttonClose.addEventListener('click', onButtonCloseClick);
