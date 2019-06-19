@@ -76,12 +76,24 @@ var buttonClose = setup.querySelector('.setup-close');
 var icon = document.querySelector('.setup-open-icon');
 var input = setup.querySelector('.setup-user-name');
 
+var setupStartCoords = {
+  x: setup.offsetLeft,
+  y: setup.offsetTop,
+};
+
+// Сбрасываем координаты
+var resetCoords = function () {
+  setup.style.top = setupStartCoords.y + 'px';
+  setup.style.left = setupStartCoords.x + 'px';
+};
+
 // click
 var onSetupClick = function () {
   setup.classList.remove('hidden');
 };
 var onButtonCloseClick = function () {
   setup.classList.add('hidden');
+  resetCoords();
 };
 
 // input
@@ -104,15 +116,16 @@ var onIconKeydown = function (evt) {
 document.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 27 && !focusOnInput) {
     setup.classList.add('hidden');
+    resetCoords();
   }
 });
 
 var onButtonCloseKeydown = function (evt) {
   if (evt.keyCode === 13) {
     setup.classList.add('hidden');
+    resetCoords();
   }
 };
-
 
 buttonOpen.addEventListener('click', onSetupClick);
 buttonClose.addEventListener('click', onButtonCloseClick);
