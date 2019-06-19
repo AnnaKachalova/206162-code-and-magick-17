@@ -1,4 +1,5 @@
 'use strict';
+var setup = document.querySelector('.setup');
 var holder = setup.querySelector('.upload');
 
 var onMouseDownHolder = function (evt) {
@@ -26,12 +27,13 @@ var onMouseDownHolder = function (evt) {
   };
 
   var onMouseUpHolder = function (upEvt) {
+    upEvt.preventDefault();
     document.removeEventListener('mousemove', onMouseMoveHolder);
     document.removeEventListener('mouseup', onMouseUpHolder);
 
     if (dragged) {
-      var onClickPreventDefault = function (evt) {
-        evt.preventDefault();
+      var onClickPreventDefault = function (clickEvt) {
+        clickEvt.preventDefault();
         holder.removeEventListener('click', onClickPreventDefault);
       };
       holder.addEventListener('click', onClickPreventDefault);
