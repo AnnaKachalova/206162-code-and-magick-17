@@ -136,7 +136,7 @@
     window.backend.save(
         new FormData(form),
         function () {
-            setup.classList.add('hidden');
+          setup.classList.add('hidden');
         },
         errorHalder
     );
