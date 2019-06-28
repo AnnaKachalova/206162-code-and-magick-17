@@ -4,26 +4,6 @@
   // show block
   document.querySelector('.setup').classList.remove('hidden');
 
-  var WIZARD_NAMES = [
-    'Иван',
-    'Хуан Себастьян',
-    'Мария',
-    'Кристоф',
-    'Виктор',
-    'Юлия',
-    'Люпита',
-    'Вашингтон',
-  ];
-  var WIZARD_LAST_NAMES = [
-    'да Марья',
-    'Верон',
-    'Мирабелла',
-    'Вальц',
-    'Онопко',
-    'Топольницкая',
-    'Нионго',
-    'Ирвинг',
-  ];
   var COAT_COLORS = [
     'rgb(101, 137, 164)',
     'rgb(241, 43, 107)',
@@ -152,17 +132,13 @@
   // Работа с отправкой формы
   var form = setup.querySelector('.setup-wizard-form');
 
-  var errorSaveHalder = function (erroeMessage) {
-    alert(erroeMessage);
-  };
-
   form.addEventListener('submit', function (evt) {
     window.backend.save(
-      new FormData(form),
-      function (response) {
-        setup.classList.add('hidden');
-      },
-      errorSaveHalder
+        new FormData(form),
+        function () {
+            setup.classList.add('hidden');
+        },
+        errorHalder
     );
     evt.preventDefault();
   });
