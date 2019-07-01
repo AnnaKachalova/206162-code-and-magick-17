@@ -1,3 +1,4 @@
+'use strict';
 (function () {
   var COAT_COLORS = [
     'rgb(101, 137, 164)',
@@ -24,9 +25,9 @@
     .querySelector('#similar-wizard-template')
     .content.querySelector('.setup-similar-item');
 
-  var renderSimilarWizards = function (wizards) {
+  var renderSimilarWizards = function (arrayWizards) {
     similarListElement.textContent = '';
-    wizards.forEach(function (wizard, i) {
+    arrayWizards.forEach(function (wizard) {
       var element = similarWizardTemplate.cloneNode(true);
 
       element.querySelector('.setup-similar-label').textContent = wizard.name;
